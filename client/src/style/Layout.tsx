@@ -12,6 +12,7 @@ const Layout = () => {
 const Box = styled.div`
   width: 100vw;
   height: 100vh;
+  padding-top: 2rem;
   background-color: #cae9ff;
 `
 
