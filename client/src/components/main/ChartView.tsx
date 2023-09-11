@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { publicApi } from '../../api/publicApi'
 import { Chart } from 'react-chartjs-2'
 import { Chart as ChartJS, LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip, LineController, BarController } from 'chart.js'
+import FilterButton from './FilterButton'
 
 ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip, LineController, BarController)
 
@@ -100,7 +101,12 @@ const ChartView = () => {
     })
   }, [AreaData, barData, labels])
 
-  return <>{chartProps && <Chart type="bar" options={option} data={chartProps} />}</>
+  return (
+    <>
+      <FilterButton regionArray={dataRegion} />
+      {chartProps && <Chart type="bar" options={option} data={chartProps} />}
+    </>
+  )
 }
 
 export default ChartView
