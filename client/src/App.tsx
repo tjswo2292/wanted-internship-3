@@ -1,5 +1,13 @@
+import Router from './router/Router'
+import { GlobalStyle } from './style/GlobalStyle'
+
 const App = () => {
-  return <div>App</div>
+  return (
+    <>
+      <Router />
+      <GlobalStyle />
+    </>
+  )
 }
 
 export default App
