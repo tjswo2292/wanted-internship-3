@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ChartData } from 'chart.js'
+import { ChartDataPropsType } from '../types/TimeSeriesChartDataType'
 
-export const updateDatasets = (filteredId: string, chartData: ChartData<'line' | 'bar'>): string[] => {
+export const updateDatasets = (filteredId: string | undefined, chartData: ChartDataPropsType): string[] => {
   const { data } = chartData.datasets[0]
 
   const colorArray: string[] = []
