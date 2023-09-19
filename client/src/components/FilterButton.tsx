@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import useChartData from '../../hook/useChartData'
+import useChartData from '../hook/useChartData'
 
 const FilterButton = () => {
   const { regionItem, handleRegionButton } = useChartData()
