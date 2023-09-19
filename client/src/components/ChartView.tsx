@@ -4,8 +4,8 @@ import { Chart as ChartJS, CategoryScale, LineController, BarController, LinearS
 import type { ChartData } from 'chart.js'
 import styled from 'styled-components'
 
-import { option } from '../../util/chartOption'
-import { TimeSeriesChartDataType } from '../../types/TimeSeriesChartDataType'
+import { option } from '../util/chartOption'
+import { TimeSeriesChartDataType } from '../types/TimeSeriesChartDataType'
 import { forwardRef } from 'react'
 
 ChartJS.register(CategoryScale, LineController, BarController, LinearScale, PointElement, LineElement, BarElement, LogarithmicScale, Title, Tooltip, Legend, Filler)
