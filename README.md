@@ -31,8 +31,17 @@
 <h2>주요기능</h2>
 
 ### hover 기능시 툴팁 형태로 정보제공
+
+![chart_function_hover](https://github.com/tjswo2292/wanted-internship-3/assets/55657931/bce986d9-8f5a-4389-88ca-5be4f1a1bfa4)
+
 ### 지역 필터링 기능
+
+![chart_function_filter_btn](https://github.com/tjswo2292/wanted-internship-3/assets/55657931/33bdd300-5631-4b5d-bf77-b68eb5293f82)
+
 ### 특정 데이터 구역 클릭 필터링
+
+![chart_function_chart](https://github.com/tjswo2292/wanted-internship-3/assets/55657931/4dbf0de9-5cc1-47e3-9c9b-9bc2fbd43a39)
+
 
 <h2>commit message convention</h2> 
 
