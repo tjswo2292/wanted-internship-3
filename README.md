@@ -1,4 +1,4 @@
-<h1>Wanted Front-End Internship Mission[1]</h1>
+<h1>Wanted Front-End Internship Mission[3]</h1>
 
 <h2>기술스택</h2>
 
