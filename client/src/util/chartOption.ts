@@ -1,4 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+type ChartTooltipDataType = {
+  0: {
+    dataIndex: number
+    dataset: {
+      dataLocation: string[]
+    }
+  }
+}
+
 const option = {
   responsive: true,
   interaction: {
@@ -16,7 +24,7 @@ const option = {
     },
     tooltip: {
       callbacks: {
-        title: (data: any) => {
+        title: (data: ChartTooltipDataType) => {
           const dataItemIndex = data[0].dataIndex
           const region = data[0].dataset.dataLocation[dataItemIndex]
           return region
