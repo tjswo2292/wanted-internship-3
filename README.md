@@ -23,10 +23,24 @@
 
 | 이름               | 버전    |
 | ----------------- | ------- |
+| node              | ^18.7.0 |
+| npm               | ^9.8.1 |
 | react             | ^18.2.0 |
 | vite              | ^4.4.5  |
 | react-chartjs-2   | ^5.2.0  |
 | chart.js          | ^4.4.0  |
+
+<h2>프로젝트 실행 방법</h2>
+
+```
+cd server
+npm install
+
+cd client
+npm install
+
+server 폴더에서 npm start
+```
 
 <h2>주요기능</h2>
 
