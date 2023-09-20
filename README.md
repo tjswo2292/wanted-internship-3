@@ -34,14 +34,63 @@
 
 ![chart_function_hover](https://github.com/tjswo2292/wanted-internship-3/assets/55657931/bce986d9-8f5a-4389-88ca-5be4f1a1bfa4)
 
-### 지역 필터링 기능
+```
+tooltip: {
+      callbacks: {
+        title: (data: ChartTooltipDataType) => {
+          const dataItemIndex = data[0].dataIndex
+          const region = data[0].dataset.dataLocation[dataItemIndex]
+          return region
+        },
+      },
+    },
+```
+```
+util/getChartData.ts
+
+const getAreaChartData = (dataList: TimeSeriesChartDataType[]) => {
+  return {
+    type: 'line' as const,
+    yAxisID: 'yLeft',
+    label: 'Area',
+    borderColor: 'rgb(220, 65, 137)',
+    borderWidth: 2,
+    data: dataList,
+    parsing: {
+      yAxisKey: `${Y_AXIS_KEY}.${VALUE_AREA}`,
+    },
+    // option -> tooltip의 title
+    dataLocation: dataList.map(element => element.y.id),
+  }
+}
+```
+title의 parameter에 data는 차트 막대기 하나하나의 데이터를 가지고 있다. 그러므로 hover되는 차트 막대기의
+index인 dataItemIndex를 구하고, Chart 컴포넌트의 data 옵션을 전달할 때, 미리 작업해 놓은 dataLocation 속성의 index로
+추가하고 return 시키면 차트에 hover 할 때마다 id(지역이름)이 보여진다.
+react-chartjs-2 라이브러리에서 Chart option에 위의 코드를 추가하면 알아서 해주기 때문에 어려운건 없었다.
+
+----
+
+### 지역 버튼 클릭시 해당하는 지역 데이터 하이라이트
 
 ![chart_function_filter_btn](https://github.com/tjswo2292/wanted-internship-3/assets/55657931/33bdd300-5631-4b5d-bf77-b68eb5293f82)
+
+코드를 무턱대고 작성하다 보니 관심사 분리가 제대로 되지 않았고, 코드 또한 보기 어려웠기 때문에 useChartData custom hook을
+선언하여 refactoring 했다.
+
+지역 버튼을 클릭하면 react-chartjs-2에서 제공하는 Chart 컴포넌트에 전달되는 데이터에서 클릭된 지역 이름과 일치하면 'rgb(255,255,153)' 일치하지 않으면 'rgb(65, 65, 220)'
+넣어 배열을 만든 후 Chart 컴포넌트에 전달되는 data에서 backgroundColor를 업데이트 하는 방식으로 구현했다.
+
+-----
 
 ### 특정 데이터 구역 클릭 필터링
 
 ![chart_function_chart](https://github.com/tjswo2292/wanted-internship-3/assets/55657931/4dbf0de9-5cc1-47e3-9c9b-9bc2fbd43a39)
 
+이 기능도 위의 기능과 비슷하게 구현했다.
+
+차트를 클릭하면 클릭된 차트 id(지역)를 가져오고, id를 기반으로 Chart 컴포넌트의 backgroundColor에 전달될 color 배열을 만들어서
+Chart 컴포넌트에 전달되는 data에서 backgroundColor를 업데이트 하는 방식으로 구현했다.
 
 <h2>commit message convention</h2> 
 
